@@ -3,7 +3,7 @@ MAINTAINER Ovi Isai <ovidiu.isai@gmail.com>
 
 USER root
 RUN echo "===> Installing sudo to emulate normal OS behavior and other needed bins..."  && \
-    apk --update add sudo gcc git curl                          && \
+    apk --update add sudo gcc git curl jq bc util-linux                   && \
     \
     \
     echo "===> Adding Python runtime..."  && \
@@ -31,7 +31,4 @@ echo 'localhost' > /etc/ansible/hosts
 
 USER jenkins
 
-ONBUILD  RUN  \
-              echo "===> Diagnosis: host information..."  && \
-              ansible -c local -m setup all
 
